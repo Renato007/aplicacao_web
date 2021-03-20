@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <title>Exercícios de HTML</title>
     <style>
-        #conteudo{
-            padding: 30px;
-        }
-        #navegacao{
+        #conteudo {
             padding: 10px;
         }
+
+        #marcadores {
+            list-style-type: none;
+                        height: 100px;
+            width: 250px;
     </style>
 </head>
 
@@ -18,14 +19,19 @@
     <header>
         <h1>Exercicios HTML</h1>
     </header>
-    <nav id = navegacao>
-        <a href wm-nav="fundamentos/TagsParaTextos01.html">TagsParaTextos</a>
-        <a href wm-nav="fundamentos/TagsParaTextos02.html">TagsParaTextos02</a> 
-        <a href wm-nav="fundamentos/listas.html">TagsParaListas</a>
-        <a href wm-nav="fundamentos/links.html">Links</a>
-       
+    <nav id=navegacao>
+        <ul id=marcadores>
+            <li><a href wm-nav="fundamentos/TagsParaTextos01.html">TagsParaTextos</a></li>
+            <li><a href wm-nav="fundamentos/TagsParaTextos02.html">TagsParaTextos02</a></li>
+            <li><a href wm-nav="fundamentos/listas.html">TagsParaListas</a></li>
+            <li><a href wm-nav="fundamentos/links.html">Links</a></li>
+            <li><a href wm-nav="fundamentos/listas.html">TagsParaListas</a></li>
+            <li><a href wm-nav="fundamentos/tabela.html">TagsParaTabela</a></li>
+            <li><a href wm-nav="fundamentos/formulario.html">TagsParaFormulários</a></li>
+        </ul>
+
     </nav>
-       <section id="conteudo"></section>
+   <section id="conteudo"></section>
     <footer> Curso de Web Moderno</footer>
     <script>
         //percorre por todos os links possiveis da tag 'a'
@@ -41,10 +47,9 @@
                     .then(resp => resp.text())
                     //depois da resposta ele vai atribuir o html encontrado para a id conteudo na seção destinada
                     .then(html => conteudo.innerHTML = html)
-                    
+
             }
         })
     </script>
 </body>
-
 </html>
