@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Exercícios de HTML</title>
+    <style>
+        #conteudo{
+            padding: 30px;
+        }
+        #navegacao{
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Exercicios HTML</h1>
+    </header>
+    <nav id = navegacao>
+        <a href wm-nav="fundamentos/TagsParaTextos01.html">TagsParaTextos</a>
+        <a href wm-nav="fundamentos/TagsParaTextos02.html">TagsParaTextos02</a> 
+        <a href wm-nav="fundamentos/listas.html">TagsParaListas</a>
+        <a href wm-nav="fundamentos/links.html">Links</a>
+       
+    </nav>
+       <section id="conteudo"></section>
+    <footer> Curso de Web Moderno</footer>
+    <script>
+        //percorre por todos os links possiveis da tag 'a'
+        document.querySelectorAll('[wm-nav]').forEach(link => {
+            const conteudo = document.getElementById('conteudo')
+            //atribuindo uma função para o evento click
+            link.onclick = function (e) {
+                //prevenir o acesso padrão (navegar) vai ficar parado esperando a proxima ordem para isso se utiliza.
+                e.preventDefault()
+                //criação de uma constante para receber o id 'conteudo' na seção destinada.
+                fetch(link.getAttribute('wm-nav'))
+                    //ele carrega  o  arquivo html texto
+                    .then(resp => resp.text())
+                    //depois da resposta ele vai atribuir o html encontrado para a id conteudo na seção destinada
+                    .then(html => conteudo.innerHTML = html)
+                    
+            }
+        })
+    </script>
+</body>
+
+</html>
