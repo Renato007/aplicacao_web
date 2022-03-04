@@ -1,39 +1,43 @@
 var titulo = document.querySelector(".titulo");
 titulo.textContent = "Aparecida Nutricionista "
 
-var paciente = document.querySelector("#primeiro_paciente")
-var tdPeso= paciente.querySelector(".info-peso");
+var pacientes = document.querySelectorAll(".paciente");// seleciona todos da classe em uma lis
 
-var peso = parseFloat(tdPeso.textContent);
+console.log(pacientes)
+for (var i = 0; i < pacientes.length; i++) {
 
-var tdAltura = paciente.querySelector(".info-altura")
+    var paciente = pacientes[i];// solução
 
-var altura = parseFloat(tdAltura.textContent);
+    var tdPeso = paciente.querySelector(".info-peso");
 
-var td_IMC = paciente.querySelector(".info-imc");
+    var peso = parseFloat(tdPeso.textContent);
 
-var pesoValido = true;
-var alturaValido = true;
+    var tdAltura = paciente.querySelector(".info-altura")
 
+    var altura = parseFloat(tdAltura.textContent);
 
-if(peso <= 0 || peso >= 1000 ){
-    console.log("Peso invalido");
-    pesoValido = false;
-    td_IMC.textContent ="Peso invalido"
-}
+    var td_IMC = paciente.querySelector(".info-imc");
 
-if(altura <= 0 || altura >= 3){
-    console.log("Altura invalido");
-    alturaValido =false;
-    td_IMC.textContent ="Altura invalido"
-
-}
-
-if(alturaValido && pesoValido){
-    var calculoIMC = peso/(altura*altura);
-     
-    td_IMC.textContent = calculoIMC;
-}
+    var pesoValido = true;
+    var alturaValido = true;
 
 
+    if (peso <= 0 || peso >= 1000) {
+        console.log("Peso invalido");
+        pesoValido = false;
+        td_IMC.textContent = "Peso invalido"
+    }
 
+    if (altura <= 0 || altura >= 3) {
+        console.log("Altura invalido");
+        alturaValido = false;
+        td_IMC.textContent = "Altura invalido"
+
+    }
+
+    if (alturaValido && pesoValido) {
+        var calculoIMC = peso / (altura * altura);
+
+        td_IMC.textContent = calculoIMC.toFixed(2);//limita a casa decimais
+    }
+};
