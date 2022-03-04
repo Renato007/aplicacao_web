@@ -4,22 +4,36 @@ titulo.textContent = "Aparecida Nutricionista "
 var paciente = document.querySelector("#primeiro_paciente")
 var tdPeso= paciente.querySelector(".info-peso");
 
-var peso = tdPeso.textContent;
+var peso = parseFloat(tdPeso.textContent);
 
 var tdAltura = paciente.querySelector(".info-altura")
 
-var altura = tdAltura.textContent;
+var altura = parseFloat(tdAltura.textContent);
 
 var td_IMC = paciente.querySelector(".info-imc");
 
-var calculoIMC = peso/(altura*altura);
- 
-td_IMC.textContent = calculoIMC;
+var pesoValido = true;
+var alturaValido = true;
 
 
-console.log(paciente) // tr 
-console.log(peso) // obter o valor do peso
-console.log(altura) // obter o valor da altura
-console.log(calculoIMC) // obter o resultado do calculo
+if(peso <= 0 || peso >= 1000 ){
+    console.log("Peso invalido");
+    pesoValido = false;
+    td_IMC.textContent ="Peso invalido"
+}
+
+if(altura <= 0 || altura >= 3){
+    console.log("Altura invalido");
+    alturaValido =false;
+    td_IMC.textContent ="Altura invalido"
+
+}
+
+if(alturaValido && pesoValido){
+    var calculoIMC = peso/(altura*altura);
+     
+    td_IMC.textContent = calculoIMC;
+}
+
 
 
