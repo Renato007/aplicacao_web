@@ -26,12 +26,14 @@ for (var i = 0; i < pacientes.length; i++) {
         console.log("Peso invalido");
         pesoValido = false;
         td_IMC.textContent = "Peso invalido"
+        paciente.classList.add("paciente-invalido");
     }
-
+    
     if (altura <= 0 || altura >= 3) {
         console.log("Altura invalido");
         alturaValido = false;
         td_IMC.textContent = "Altura invalido"
+        paciente.classList.add("paciente-invalido"); // propriedade do DOM que permite adicionar um style.
 
     }
 
